@@ -85,3 +85,8 @@ main{
     background-color: #777;
     color: white;
 }
+@media screen and (max-width: 1160px) {
+    main{
+        height: auto;
+    }
+}
