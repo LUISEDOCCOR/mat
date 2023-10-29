@@ -3,13 +3,15 @@
     padding: 0;
     font-family: monospace;
 }
+body{ 
+    background-color: #555;
+}
 main{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 100vh;
-    background-color: #555;
     gap: 30px;
 }
 #alert{
@@ -25,6 +27,7 @@ main{
 }
 #input{
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
     margin-left: 5vw;
@@ -60,4 +63,25 @@ main{
     font-size: 20px;
     display: flex;
     flex-direction: column;
+}
+#continer-graphics{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+}
+#config{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+#config input {
+    border: none;
+    border-radius: 2px;
+    background-color: #777;
+}
+#config select{
+    background-color: #777;
+    color: white;
 }

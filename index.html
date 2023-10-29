@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Local -->
     <link rel="stylesheet" href="./css/index.css">
     <script defer src="./js/script.js"></script>
@@ -26,6 +26,19 @@
         </div>
         <div id="output">
             <!-- JS CODE TABLE -->
+        </div>
+        <div id="continer-graphics">
+            <div id="config">
+                <input type="color" id="color" value="#BB8FCE">
+                <select id="type">
+                    <option value="line">Gráfico de líneas.</option>
+                    <option value="bar">Gráfico de barras.</option>
+                    <option value="pie">Gráfico de pastel.</option>
+                    <option value="doughnut">Gráfico de radar.</option>
+                    <option value="polarArea">Gráfico de área polar.</option>
+                </select>
+            </div>
+            <canvas id="graph"></canvas>
         </div>
     </main>
 </body>

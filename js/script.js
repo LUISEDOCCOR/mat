@@ -4,6 +4,10 @@ const containerInput = document.querySelector('#input')
 const alert = document.querySelector('#alert')
 const btn = document.querySelector('#calc')
 const output = document.querySelector('#output')
+const graph = document.querySelector('#graph')
+const graphColor = document.querySelector('#color')
+const graphType = document.querySelector('#type')
+var Graph
 var numbers = []
 var index = 0
 
@@ -72,7 +76,7 @@ const getMediana = () =>{
 getModa = () => {
     var prototype = [...numbers]
     prototype.sort(function(a,b){return a - b})
-    //elemntos que se repiten
+    //elemntos 
     let x = []
     //cantidad de veces que se repiten 
     let y = []
@@ -95,7 +99,38 @@ getModa = () => {
         moda.push(x[i])
     }
     
+    getGraph(x , y)
     return moda   
+}
+
+const getGraph = (items, frequency) =>{
+    const datos = {
+        labels: items,
+        datasets: [{
+            label: 'Frecuencia',
+            data: frequency, 
+            backgroundColor: graphColor.value, // Color de las barras
+            borderWidth: 1 // Ancho del borde
+        }]
+    }
+    const opciones = {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    };
+    
+    
+    if(Graph){
+        Graph.destroy()
+    }
+
+    Graph = new Chart(graph,{
+        type: graphType.value,
+        data: datos,
+        options: opciones
+    }) 
 }
 
 const getAlert = (mode) =>{
