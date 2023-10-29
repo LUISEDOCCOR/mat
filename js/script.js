@@ -7,6 +7,7 @@ const output = document.querySelector('#output')
 const graph = document.querySelector('#graph')
 const graphColor = document.querySelector('#color')
 const graphType = document.querySelector('#type')
+const btnDownload = document.querySelector('#download')
 var Graph
 var numbers = []
 var index = 0
@@ -115,7 +116,7 @@ const getGraph = (items, frequency) =>{
     }
     const opciones = {
         scales: {
-            y: {
+            y: {    
                 beginAtZero: true
             }
         }
@@ -132,6 +133,16 @@ const getGraph = (items, frequency) =>{
         options: opciones
     }) 
 }
+
+btnDownload.addEventListener('click', ()=>{
+    if(Graph){
+        const a = document.createElement('a')
+        a.href = graph.toDataURL("image/png")
+        a.download = 'grafica.png'
+
+        a.click()
+    }
+})
 
 const getAlert = (mode) =>{
     if(mode){

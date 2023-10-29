@@ -45,7 +45,7 @@ main{
 .input-number:hover{
     scale: 1.2;
 }
-#calc{
+#calc, #download{
     padding: 10px;
     border: none;
     border-radius: 20px;
@@ -54,7 +54,7 @@ main{
     font-size: 17px;
     transition: .3s;
 }
-#calc:hover{
+#calc:hover, #download:hover{
     scale: 1.1;
     background-color: #999;
 }
