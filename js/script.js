@@ -31,7 +31,6 @@ const getData = ()=>{
         }
         numbers.push(inputs[i].value)
     }
-    const promedio = getPromedio()
     outputData()
 
 }
@@ -40,6 +39,7 @@ const outputData = () =>{
     const prototype = `
         <span>Promedio: <b>${getPromedio()}</b></span>
         <span>Mediana: <b>${getMediana()}</b></span>
+        <span>Moda: <b>${getModa()}</b></span>
 
     `
     output.innerHTML = prototype
@@ -58,15 +58,44 @@ const getMediana = () =>{
     prototype.sort(function(a,b){return a - b})
 
     if(prototype.length % 2 === 0){
-        var x = prototype[prototype.length / 2 - 1]
-        var y = prototype[prototype.length / 2]
+        var x = parseFloat(prototype[(prototype.length / 2) - 1])
+        var y = parseFloat(prototype[prototype.length / 2])
+        
         return (x + y) / 2
     }
     else{
         return prototype[Math.floor(prototype.length / 2)];
 
     }
+}
 
+getModa = () => {
+    var prototype = [...numbers]
+    prototype.sort(function(a,b){return a - b})
+    //elemntos que se repiten
+    let x = []
+    //cantidad de veces que se repiten 
+    let y = []
+    let contador = 1
+    for (let i = 0; i < prototype.length; i++){
+        if(prototype[i + 1] === prototype[i]){
+            contador ++    
+        }else{
+            x.push(prototype[i])
+            y.push(contador)
+            contador = 1
+        }
+    }
+
+    var moda = []
+    var max = Math.max(...y)
+    console.log(max)
+    for(let i = 0; i < y.length; i ++){
+        if(y[i] == max)
+        moda.push(x[i])
+    }
+    
+    return moda   
 }
 
 const getAlert = (mode) =>{

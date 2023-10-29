@@ -35,12 +35,12 @@ main{
     width: 80px;
     border: none;
     border-radius: 10px;
-    transition: .3s;
+    transition: .5s;
     font-size: 17px;
     text-align: center;
 }
 .input-number:hover{
-    scale: 1.1;
+    scale: 1.2;
 }
 #calc{
     padding: 10px;
