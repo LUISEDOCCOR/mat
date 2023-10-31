@@ -75,6 +75,7 @@ main{
     display: flex;
     gap: 10px;
     justify-content: center;
+    align-items: center;
 }
 #config input {
     border: none;
