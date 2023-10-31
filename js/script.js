@@ -12,6 +12,7 @@ var Graph
 var numbers = []
 var index = 0
 
+
 inputRange.addEventListener('input', ()=>{
     index = inputRange.value
     inputRangeValue.innerHTML = index
@@ -132,7 +133,9 @@ const getGraph = (items, frequency) =>{
         data: datos,
         options: opciones
     }) 
-}
+    
+    pushLocalStorage(graphColor.value, graphType.value)
+} 
 
 btnDownload.addEventListener('click', ()=>{
     if(Graph){
@@ -143,6 +146,22 @@ btnDownload.addEventListener('click', ()=>{
         a.click()
     }
 })
+
+const pushLocalStorage = (color, type) => {
+    const protype = {
+        "type": type,
+        "color": color
+    }
+    localStorage.setItem('settings', JSON.stringify(protype))
+}
+
+const getLocalStorage = () =>{
+    if(localStorage.getItem('settings')){
+        const settings = JSON.parse(localStorage.getItem('settings'))
+        graphType.value =  settings.type
+        graphColor.value =  settings.color
+    }
+}
 
 const getAlert = (mode) =>{
     if(mode){
@@ -171,3 +190,4 @@ const addInput = ()=>{
 }
 
 inputRange.value = index
+getLocalStorage()
